@@ -151,7 +151,7 @@ system_message = SystemMessage(
                     - Output/Formative Assessment
                     - Assessment Tools (i.e. what will be used to assess the students)
             6/ Grading System
-            7/ References in the APA format
+            7/ References in the {st.session_state['citation_style']} format
             
             Please make sure you complete the objective above with the following rules:
             1/ Before generating your course outline, you should do enough research in scholarly publication sites to gather as much information as possible about the course. You should try looking for results in Google Scholar, ResearchGate, and other scholarly publication sites
@@ -167,7 +167,7 @@ sub_system_message = SystemMessage(
     content=f"""You are a professional college educator, who can do detailed research for the purpose of creating an up-to-date course outline for any college course. 
             For this this task, you will need to look for recent publications, educational resources, and data related to this topic within the given course.
             The purpose of this task is to gather references and resources for the course outline. 
-            You will need to provide a list of references and resources for each topic in the APA reference format.
+            You will need to provide a list of references and resources for each topic in the {st.session_state['citation_style']} reference format.
            
             
             Please make sure you complete the objective above with the following rules:
@@ -250,9 +250,9 @@ def main():
     with col2:
         total_hours = st.number_input("Total Hours", min_value=1, max_value=100, value=54, step=1)
     with col4:
-        total_
+        hours_per_week = st.number_input("Hours Per Week", min_value=1, max_value=100, value=6, step=1)
     if st.button("Generate Course Outline",use_container_width= True):
-        query = f"Course Title: {course_title}\nCourse Description: {course_description}\nTarget Student Audience: {target_audience}\nTotal Hours: {total_hours}"
+        query = f"Course Title: {course_title}\nCourse Description: {course_description}\nTarget Student Audience: {target_audience}\nTotal Hours: {total_hours}\nHours per Week:"
         st.write("Doing research for ", course_title)
 
         result = agent({"input": query})
