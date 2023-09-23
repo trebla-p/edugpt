@@ -1,6 +1,3 @@
-
-from dotenv import load_dotenv
-
 from langchain import PromptTemplate
 from langchain.agents import initialize_agent, Tool
 from langchain.agents import AgentType
@@ -16,7 +13,6 @@ from bs4 import BeautifulSoup
 import requests
 import json
 from langchain.schema import SystemMessage
-from fastapi import FastAPI
 import streamlit as st
 
 # load_dotenv()
