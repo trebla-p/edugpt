@@ -252,7 +252,7 @@ def main():
     with col4:
         hours_per_week = st.number_input("Hours Per Week", min_value=1, max_value=100, value=6, step=1)
     if st.button("Generate Course Outline",use_container_width= True):
-        query = f"Course Title: {course_title}\nCourse Description: {course_description}\nTarget Student Audience: {target_audience}\nTotal Hours: {total_hours}\nHours per Week:"
+        query = f"Course Title: {course_title}\nCourse Description: {course_description}\nTarget Student Audience: {target_audience}\nTotal Hours: {total_hours}\nHours per Week:{hours_per_week}"
         st.write("Doing research for ", course_title)
 
         result = agent({"input": query})
